@@ -1,2 +1,5 @@
-# cicd-pipeline-k8s-docker-jenkins-flask
-Set up a cicd-pipeline for flask-application using k8s docker jenkins
+Flask Hello World application
+=============================
+
+This is the Flask Hello World application shamelessly copied from
+http://flask.pocoo.org/docs/quickstart/.
