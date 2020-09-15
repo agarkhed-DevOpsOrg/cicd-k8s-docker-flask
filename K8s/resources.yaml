@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+  replicas: 2
+  template: #template for the pods
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp-container
+        image: ashwinpagarkhed/image:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaskwebapp
+spec:
+  selector:
+    app: webapp
+  ports:
+  - name: tcp
+    port: 3000
+    targetPort: 3000
+    nodePort: 30080
+  type: NodePort
