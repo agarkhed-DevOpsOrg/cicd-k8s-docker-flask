@@ -1,1 +1,1 @@
-kubectl apply -f run-cluster.yaml
+kubectl apply -f resources.yaml
