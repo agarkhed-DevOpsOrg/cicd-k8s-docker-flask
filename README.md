@@ -17,6 +17,7 @@ sudo chmod +x run-scripts.sh
 ${DOCKERPWD} | docker login --username ashwinpagarkhed --password-stdin
 ./run-scripts.sh sh
 ``` 
+![Jenkins Builds](https://github.com/agarkhed-DevOpsOrg/cicd-pipeline-k8s-docker-jenkins-flask/blob/master/images/buildGraph.png?raw=true)
 
 ## To Delete Resources on Docker Server
 ```
@@ -44,17 +45,18 @@ docker run -it -d -p 3000:3000 --network=docker-network -t network-node-1 grafan
 ```
 docker run -it -d -p 9090:9090 --network=docker-network -t network-node-2 prom/prometheus
 ```
-### Note:- After both these are up, login to grafana as admin and add datasource as prometheus
+###### Note:- After both these are up, login to grafana as admin and add datasource as prometheus
+![Grafana metrics](https://github.com/agarkhed-DevOpsOrg/cicd-pipeline-k8s-docker-jenkins-flask/blob/master/images/Grafana.png?raw=true)
 
 ## To Run flask container
 ```
 docker run -d -it -p 5002:5000 --network=docker-network -t network-node-3 ashwinpagarkhed/image:latest
 ```
-### Note:- In my code, I have run the flask normally. Make these changes in your code if you want to run flask container in docker network
+###### Note:- In my code, I have run the flask normally. Make these changes in your code if you want to run flask container in docker network
 
 
 ## Kubernetes command to run flask pods on minikube 
 ```
 kubectl apply -f resources.yaml
 ```
-
+![Running Pods Status](https://github.com/agarkhed-DevOpsOrg/cicd-pipeline-k8s-docker-jenkins-flask/blob/master/images/kubectlStatus.png?raw=true)
